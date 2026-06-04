@@ -1,0 +1,78 @@
+{
+  "contract": "reentrancy.sol",
+  "timestamp": "2026-05-12T10:56:07.336949",
+  "static_findings": [
+    {
+      "tool": "Slither",
+      "check": "reentrancy-eth",
+      "severity": "High",
+      "confidence": "Medium",
+      "description": "Reentrancy in VulnerableBank.withdraw(uint256) (contracts/reentrancy.sol#11-16):\n\tExternal calls:\n\t- (success,None) = msg.sender.call{value: _amount}() (contracts/reentrancy.sol#13)\n\tState variables written after the call(s):\n\t- balances[msg.sender] -= _amount (contracts/reentrancy.sol#15)\n\tVulnerableBank.balances (contracts/reentrancy.sol#5) can be used in cross function reentrancies:\n\t- VulnerableBank.balances (contracts/reentrancy.sol#5)\n\t- VulnerableBank.deposit() (contracts/reentrancy.sol#7-9)\n\t- VulnerableBank.withdraw(uint256) (contracts/reentrancy.sol#11-16)",
+      "status": "UNREVIEWED"
+    },
+    {
+      "tool": "Slither",
+      "check": "solc-version",
+      "severity": "Informational",
+      "confidence": "High",
+      "description": "Version constraint ^0.8.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- FullInlinerNonExpressionSplitArgumentEvaluationOrder\n\t- MissingSideEffectsOnSelectorAccess\n\t- AbiReencodingHeadOverflowWithStaticArrayCleanup\n\t- DirtyBytesArrayToStorage\n\t- DataLocationChangeInInternalOverride\n\t- NestedCalldataArrayAbiReencodingSizeValidation\n\t- SignedImmutables\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching.\nIt is used by:\n\t- ^0.8.0 (contracts/reentrancy.sol#2)",
+      "status": "UNREVIEWED"
+    },
+    {
+      "tool": "Slither",
+      "check": "low-level-calls",
+      "severity": "Informational",
+      "confidence": "High",
+      "description": "Low level call in VulnerableBank.withdraw(uint256) (contracts/reentrancy.sol#11-16):\n\t- (success,None) = msg.sender.call{value: _amount}() (contracts/reentrancy.sol#13)",
+      "status": "UNREVIEWED"
+    },
+    {
+      "tool": "Slither",
+      "check": "naming-convention",
+      "severity": "Informational",
+      "confidence": "High",
+      "description": "Parameter VulnerableBank.withdraw(uint256)._amount (contracts/reentrancy.sol#11) is not in mixedCase",
+      "status": "UNREVIEWED"
+    }
+  ],
+  "llm_result": {
+    "confirmed": [],
+    "dismissed": [],
+    "new_findings": [],
+    "verdict": "LLM analysis failed."
+  },
+  "final_findings": [
+    {
+      "tool": "Slither",
+      "check": "reentrancy-eth",
+      "severity": "High",
+      "confidence": "Medium",
+      "description": "Reentrancy in VulnerableBank.withdraw(uint256) (contracts/reentrancy.sol#11-16):\n\tExternal calls:\n\t- (success,None) = msg.sender.call{value: _amount}() (contracts/reentrancy.sol#13)\n\tState variables written after the call(s):\n\t- balances[msg.sender] -= _amount (contracts/reentrancy.sol#15)\n\tVulnerableBank.balances (contracts/reentrancy.sol#5) can be used in cross function reentrancies:\n\t- VulnerableBank.balances (contracts/reentrancy.sol#5)\n\t- VulnerableBank.deposit() (contracts/reentrancy.sol#7-9)\n\t- VulnerableBank.withdraw(uint256) (contracts/reentrancy.sol#11-16)",
+      "status": "UNREVIEWED"
+    },
+    {
+      "tool": "Slither",
+      "check": "solc-version",
+      "severity": "Informational",
+      "confidence": "High",
+      "description": "Version constraint ^0.8.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- FullInlinerNonExpressionSplitArgumentEvaluationOrder\n\t- MissingSideEffectsOnSelectorAccess\n\t- AbiReencodingHeadOverflowWithStaticArrayCleanup\n\t- DirtyBytesArrayToStorage\n\t- DataLocationChangeInInternalOverride\n\t- NestedCalldataArrayAbiReencodingSizeValidation\n\t- SignedImmutables\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching.\nIt is used by:\n\t- ^0.8.0 (contracts/reentrancy.sol#2)",
+      "status": "UNREVIEWED"
+    },
+    {
+      "tool": "Slither",
+      "check": "low-level-calls",
+      "severity": "Informational",
+      "confidence": "High",
+      "description": "Low level call in VulnerableBank.withdraw(uint256) (contracts/reentrancy.sol#11-16):\n\t- (success,None) = msg.sender.call{value: _amount}() (contracts/reentrancy.sol#13)",
+      "status": "UNREVIEWED"
+    },
+    {
+      "tool": "Slither",
+      "check": "naming-convention",
+      "severity": "Informational",
+      "confidence": "High",
+      "description": "Parameter VulnerableBank.withdraw(uint256)._amount (contracts/reentrancy.sol#11) is not in mixedCase",
+      "status": "UNREVIEWED"
+    }
+  ]
+}
